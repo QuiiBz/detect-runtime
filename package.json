@@ -27,6 +27,7 @@
     "url": "https://github.com/QuiiBz/detect-runtime/issues"
   },
   "homepage": "https://github.com/QuiiBz/detect-runtime#readme",
+  "packageManager": "pnpm@8.6.6",
   "scripts": {
     "build": "unbuild"
   },

@@ -33,7 +33,7 @@ bun install detect-runtime
 Or in Deno:
 
 ```ts
-import { ... } from 'npm:detect-runtime@5'
+import { ... } from 'npm:detect-runtime'
 ```
 
 ## Usage

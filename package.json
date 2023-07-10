@@ -28,11 +28,34 @@
     "url": "https://github.com/QuiiBz/detect-runtime/issues"
   },
   "homepage": "https://github.com/QuiiBz/detect-runtime#readme",
+  "packageManager": "pnpm@8.6.6",
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "start:workerd": "wrangler dev tests/workerd/index.ts",
+    "start:deno": "deno run -A tests/deno/index.ts",
+    "start:lagon": "lagon dev tests/lagon/index.ts",
+    "start:netlify": "cd tests/netlify && netlify dev",
+    "start:node": "node tests/node/index.js",
+    "start:bun": "bun tests/bun/index.ts",
+    "start:edge-light": "edge-runtime --listen tests/edge-light/index.ts",
+    "check:workerd": "if curl -sb -o /dev/null http://localhost:8787 | grep -q workerd; then echo 'Workerd test passed'; else echo 'Workerd test failed'; exit 1; fi",
+    "check:deno": "if curl -sb -o /dev/null http://localhost:3000 | grep -q deno; then echo 'Deno test passed'; else echo 'Deno test failed'; exit 1; fi",
+    "check:lagon": "if curl -sb -o /dev/null http://localhost:1234 | grep -q lagon; then echo 'Lagon test passed'; else echo 'Lagon test failed'; exit 1; fi",
+    "check:netlify": "if curl -sb -o /dev/null http://localhost:8888 | grep -q netlify; then echo 'Netlify test passed'; else echo 'Netlify test failed'; exit 1; fi",
+    "check:node": "if curl -sb -o /dev/null http://localhost:8000 | grep -q node; then echo 'Node test passed'; else echo 'Node test failed'; exit 1; fi",
+    "check:bun": "if curl -sb -o /dev/null http://localhost:3000 | grep -q bun; then echo 'Bun test passed'; else echo 'Bun test failed'; exit 1; fi",
+    "check:edge-light": "if curl -sb -o /dev/null http://localhost:3000 | grep -q edge-light; then echo 'Edge-light test passed'; else echo 'Edge-light test failed'; exit 1; fi",
+    "test:workerd": "start-server-and-test start:workerd 8787 check:workerd",
+    "test:deno": "start-server-and-test start:deno 3000 check:deno",
+    "test:lagon": "start-server-and-test start:lagon 1234 check:lagon",
+    "test:netlify": "start-server-and-test start:netlify 8888 check:netlify",
+    "test:node": "start-server-and-test start:node 8000 check:node",
+    "test:bun": "start-server-and-test start:bun 3000 check:bun",
+    "test:edge-light": "start-server-and-test start:edge-light 3000 check:edge-light"
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
+    "start-server-and-test": "^2.0.0",
     "typescript": "^5.1.6",
     "unbuild": "^1.2.1"
   }

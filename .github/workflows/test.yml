@@ -45,7 +45,7 @@ jobs:
         run: pnpm build
 
       - name: Install required global dependencies
-        run: pnpm install -g edge-runtime wrangler netlify-cli lagon esbuild
+        run: pnpm install -g edge-runtime wrangler netlify-cli @lagon/cli esbuild
 
       - name: Install Deno
         uses: denoland/setup-deno@v1

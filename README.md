@@ -15,6 +15,27 @@ Small library to detect the current JavaScript runtime. The list of supported ru
 
 This package is properly typed and exported to both ESM and CJS.
 
+## Installation
+
+`detect-runtime` is published on [NPM](https://www.npmjs.com/package/detect-runtime):
+
+```bash
+# NPM
+npm install detect-runtime
+# Yarn
+yarn add detect-runtime
+# PNPM
+pnpm install detect-runtime
+# Bun
+bun install detect-runtime
+```
+
+Or in Deno:
+
+```ts
+import { ... } from 'npm:detect-runtime'
+```
+
 ## Usage
 
 Import and call the `detectRuntime()` function from the `detect-runtime` package:

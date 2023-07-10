@@ -23,9 +23,13 @@ import {
  * @returns {Runtime}
  */
 export function detectRuntime(): Runtime {
-  // TODO: Find a way to detect edge-routine
-  // it seems like it's currently in beta:
-  // https://www.alibabacloud.com/help/en/dynamic-route-for-cdn/latest/er-overview
+  if (typeof Netlify === "object") {
+    return "netlify";
+  }
+
+  if (typeof EdgeRuntime === "string") {
+    return "edge-light";
+  }
 
   if (globalThis.navigator?.userAgent === CLOUDFLARE_WORKERS_NAVIGATOR) {
     return "workerd";
@@ -39,14 +43,6 @@ export function detectRuntime(): Runtime {
     return "lagon";
   }
 
-  // TODO: Find a way to detect react-native
-
-  if (typeof Netlify === "object") {
-    return "netlify";
-  }
-
-  // TODO: Find a way to detect electron
-
   if (globalThis.process?.release?.name === NODE_PROCESS_RELEASE_NAME) {
     return "node";
   }
@@ -55,9 +51,13 @@ export function detectRuntime(): Runtime {
     return "bun";
   }
 
-  if (typeof EdgeRuntime === "string") {
-    return "edge-light";
-  }
+  // TODO: Find a way to detect edge-routine
+  // it seems like it's currently in beta:
+  // https://www.alibabacloud.com/help/en/dynamic-route-for-cdn/latest/er-overview
+
+  // TODO: Find a way to detect react-native
+
+  // TODO: Find a way to detect electron
 
   return "unknown";
 }

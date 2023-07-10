@@ -1,3 +1,3 @@
 import { detectRuntime } from "../../dist/index.mjs";
 
-Deno.serve(() => new Response(`Detected: ${detectRuntime()}`));
+Deno.serve({ port: 3000 }, () => new Response(`Detected: ${detectRuntime()}`));

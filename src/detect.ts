@@ -18,6 +18,7 @@ import {
  * - `node` Node.js
  * - `bun` Bun
  * - `edge-light` Vercel Edge Functions
+ * - `fastly` Fastly Compute@Edge
  *
  * @see https://runtime-keys.proposal.wintercg.org/
  * @returns {Runtime}
@@ -49,6 +50,10 @@ export function detectRuntime(): Runtime {
 
   if (globalThis.Bun) {
     return "bun";
+  }
+
+  if (globalThis.fastly) {
+    return "fastly";
   }
 
   // TODO: Find a way to detect edge-routine

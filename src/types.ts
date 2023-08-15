@@ -10,6 +10,8 @@ declare global {
   var Deno: any;
 
   var __lagon__: any;
+
+  var fastly: any;
 }
 
 // Follows the list of Runtime Keys from the WinterCG proposal:
@@ -25,4 +27,5 @@ export type Runtime =
   | "node"
   | "bun"
   | "edge-light"
+  | "fastly"
   | "unknown";

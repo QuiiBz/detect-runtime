@@ -12,6 +12,7 @@ Small library to detect the current JavaScript runtime. The list of supported ru
  - `node` Node.js
  - `bun` Bun
  - `edge-light` Vercel Edge Functions
+ - `fastly` Fastly Compute@Edge
 
 This package is properly typed and exported to both ESM and CJS.
 

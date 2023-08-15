@@ -1,6 +1,6 @@
 {
   "name": "detect-runtime",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Detects the current runtime environment (Node.js, Cloudflare Workers, Deno, ...)",
   "keywords": [
     "runtime",

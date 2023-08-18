@@ -1,5 +1,8 @@
 ## detect-runtime
 
+> **Warning**
+> detect-runtime has been deprecated in favor of [std-env](https://github.com/unjs/std-env) (since version 3.4.0), which includes the same functionalities and much more.
+
 Small library to detect the current JavaScript runtime. The list of supported runtimes is based on the [WinterCG Runtime Keys proposal](https://runtime-keys.proposal.wintercg.org/):
 
  - `edge-routine` Alibaba Cloud Edge Routine
